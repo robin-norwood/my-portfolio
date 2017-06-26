@@ -1,0 +1,231 @@
+/*
+  Theme colors
+    All selectors with colors that would need
+    to be changed for theme changes
+*/
+
+/*
+  COLORS
+
+  Sky
+    rgb(52, 152, 219)
+
+  Dark Blue
+    rgb(44, 62, 80)
+
+  Grey
+    rgb(127, 140, 141)
+
+  Cloud
+    rgb(236, 240, 241)
+*/
+
+.background--skyBlue {
+  background-color: rgb(52, 152, 219);
+}
+
+.color--skyBlue {
+  color: rgb(52, 152, 219);
+}
+
+.color--cloud {
+  color: rgb(236, 240, 241);
+}
+
+.color--grey {
+  color: rgb(127, 140, 141);
+}
+
+.color--darkgrey {
+  color: rgb(44, 62, 80);
+}
+
+.section__example {
+  background-color: rgb(44, 62, 80);
+}
+
+/*
+  General Styles
+    These are styles to be inherited
+    through parent containers
+*/
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Cardo', serif;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: .1rem;
+}
+
+/*
+  Helpers
+*/
+
+.margin--none {
+  margin: 0;
+}
+
+.overflow--auto {
+  overflow: auto;
+}
+
+
+/*
+  Sections
+*/
+
+.section {
+  font-size: 4.2rem;
+  min-height: 70vh;
+  position: relative;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.section--alignCentered {
+  text-align: center;
+}
+
+.section--description {
+  font-size: 2.8rem;
+  padding-left: 3.5rem;
+  padding-right: 3.5rem;
+}
+
+.section__description {
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  width: 50%;
+}
+
+.section__text--centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.section__exampleWrapper,
+.section__example {
+  display: inline-block;
+  height: 35rem;
+  width: 35rem;
+}
+
+.section__exampleWrapper {
+  margin-right: 4rem;
+}
+
+.section__example {
+  border-radius: 100%;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+
+.section__example:active {
+  transition: 0.05s all;
+  width: 34rem;
+  height: 34rem;
+}
+
+.section__exampleTitle{
+  font-size: 3.4rem;
+  text-align: center;
+  text-transform: uppercase;
+  width: 90%;
+}
+
+.section__exampleImage {
+  opacity: 0.25;
+  width: 250%;
+  margin-left: -50%;
+  margin-top: -50%;
+}
+
+/*
+  Header
+*/
+
+.section__heading--largest {
+  float: left;
+  font-size: 5rem;
+  margin-left: 2rem;
+}
+
+.section--social {
+  float: right;
+  line-height: 10rem;
+  margin-right: 2rem;
+}
+
+.social {
+  margin-right: 0.75rem;
+}
+
+.socialWrapper:last-child .social {
+  margin-right: 0;
+}
+
+.socialWrapper {
+  display: inline-block;
+  font-size: 3rem;
+}
+
+
+/*
+  Modal
+*/
+
+.modal--closed {
+  display: none;
+}
+
+.modal--open {
+  display: block;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+}
+
+.modal__closeButton {
+  position: absolute;
+  right: 2rem;
+  top: 5rem;
+  font-size: 4rem;
+  z-index: 1;
+  curson: pointer;
+}
+
+.modal__text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 2.4rem;
+  padding: 2rem;
+  width: 66%;
+}
+
+.modal__link {
+  background-color: white;
+  border-radius: 4px;
+  padding: 0.4rem 1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.modal__image {
+  opacity: 0.2;
+}
