@@ -28,7 +28,7 @@
       </div>
     </main>
 
-    <script src="https://unpkg.com/babel-standalone">
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js">
     </script>
 
     <script type="text/babel" data-presets="latest">
@@ -43,7 +43,7 @@
       let name = document.getElementById('name').value;
       messageArea.className = "errorBox--hidden";
       contentArea.textContent = "";
-      
+
       if (name.length < 2) {
         messageArea.textContent = "You need to enter a name!";
         messageArea.className = "errorBox";
