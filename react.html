@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>React Demo</title>
+    <link rel="stylesheet" href="https://unpkg.com/mocha@5.0.4/mocha.css">
+    <style media="screen">
+      .messageBox {
+        border: 1px solid;
+        margin: 1em;
+        padding: 2em;
+      }
+
+      .error {
+        border-color: red;
+        background-color: #eebbbb;
+      }
+
+      .success {
+        border-color: blue;
+        background-color: #bbbbee;
+      }
+
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <main id="content"></main>
+    <div id="mocha"></div>
+    <script type="text/javascript" src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/react@16.0.0/umd/react.production.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.production.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/chai@4.1.2/chai.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mocha@5.0.4/mocha.js"></script>
+
+    <script type="text/babel" data-presets="react">
+
+      class NameInput extends React.Component {
+        constructor(props) {
+          super(props);
+
+          this.state = {
+            message: {
+              type: undefined,
+              body: undefined
+            }
+          }
+
+          this.buttonClicked = this.buttonClicked.bind(this);
+        }
+
+        buttonClicked(evt) {
+          let name = this.refs.nameInput.value;
+
+          this.setState({
+            message: {
+              type: name ? "success" : "error",
+              body: name ? "Welcome to React, " + name : "You must enter a name!"
+            }
+          })
+        }
+
+        render() {
+          let msg = this.state.message;
+
+          return (
+            <div>
+              <label>Name: <input ref="nameInput" type="text"/></label>
+              <button id="inputButton" onClick={this.buttonClicked}>Click me!</button>
+
+              <MessageBox type={msg.type} message={msg.body}/>
+            </div>
+          )
+        }
+      }
+
+      class MessageBox extends React.Component {
+        render() {
+          return (
+            <div className={"messageBox " + (this.props.type || "hidden")}>
+              {this.props.message}
+            </div>
+          )
+        }
+      }
+      ReactDOM.render(<NameInput />, document.getElementById('content'));
+    </script>
+
+    <script type="text/babel" data-presets="react">
+
+      const assert = chai.assert;
+
+      mocha.ui("bdd");
+      mocha.reporter("html");
+
+      describe("Example tests", () => {
+        it("Prove that math works", () => {
+          assert.equal(5, 3 + 2, "Math works!");
+          assert.notEqual(3+2, 6, "Math still works.");
+          assert.closeTo(Math.PI, 3, .2, "PI is close to 3.");
+        });
+
+        it("Found our component", () => {
+          assert.isDefined(MessageBox, "Our MessageBox component is defined");
+        });
+
+        it("Let us test a function", () => {
+          let myName = "Robin";
+          const greet = (name) => "Hello, " + name;
+
+          assert.include(greet(myName), myName, "Greeting includes name");
+        });
+      });
+
+      describe("Document tests", () => {
+        it("Rendered an empty message box", () => {
+          let msgBox = document.querySelector(".messageBox");
+          assert.isDefined(msgBox, "Messagebox is defined");
+          assert.include(msgBox.classList.value, "hidden", "Message box is hidden");
+          assert.equal(msgBox.innerText, "", "Message box is empty.");
+        });
+
+        it("Rendered an error when name is empty", () => {
+          let msgBox = document.querySelector(".messageBox");
+          let button = document.querySelector("#inputButton");
+          button.click();
+          assert.include(msgBox.classList.value, "error", "We clicked the button");
+        })
+      });
+
+      mocha.run();
+
+    </script>
+
+  </body>
+</html>
