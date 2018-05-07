@@ -11,28 +11,29 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/robin-acloud/my-portfolio.git"
+    "url": "git+https://github.com/robin-acloud/my-portfolio.git"
   },
   "author": "Robin Norwood <robin@acloud.guru>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/robin-acloud/my-portfolio/issues"
   },
-  "homepage": "https://github.com/robin-acloud/my-portfolio",
+  "homepage": "https://github.com/robin-acloud/my-portfolio#readme",
   "dependencies": {
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
   },
   "devDependencies": {
-    "babel-core": "^6.25.0",
-    "babel-jest": "^20.0.3",
-    "babel-loader": "^7.1.1",
-    "babel-preset-es2015": "^6.24.1",
+    "babel-core": "^6.26.0",
+    "babel-jest": "^22.4.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
-    "enzyme": "^3.1.0",
-    "enzyme-adapter-react-15": "^1.0.1",
-    "jest": "^20.0.4",
-    "react-test-renderer": "^15.6.1",
-    "webpack": "^3.0.0"
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "jest": "^22.4.3",
+    "react-test-renderer": "^16.2.0",
+    "webpack": "^4.2.0",
+    "webpack-cli": "^2.0.13"
   }
 }

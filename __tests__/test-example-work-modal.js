@@ -1,11 +1,11 @@
 import React from 'react';
-
-import { configure, shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-15';
-
+import { shallow } from 'enzyme';
 import ExampleWorkModal from '../js/example-work-modal';
 
-configure({ adapter: new Adapter() });
+import Enzyme from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 const myExample = {
   'title': "Work Example",
@@ -18,24 +18,24 @@ const myExample = {
   }
 };
 
-describe("ExampleWorkModal component", () => {
+describe("ExampleWorkModal Component", () => {
   let component = shallow(<ExampleWorkModal example={myExample}
     open={false}/>);
   let openComponent = shallow(<ExampleWorkModal example={myExample}
     open={true}/>);
 
-  let anchors = component.find("a");
+  let anchors = component.find('a');
 
-  it("Should contain a single 'a' element", () => {
+  it("Should contain a single anchor tag", () => {
     expect(anchors.length).toEqual(1);
   });
 
   it("Should link to our project", () => {
-    expect(anchors.getElement().props.href).toEqual(myExample.href);
+    expect(anchors.prop('href')).toEqual(myExample.href);
   });
 
   it("Should have the modal class set correctly", () => {
     expect(component.find(".background--skyBlue").hasClass("modal--closed")).toBe(true);
     expect(openComponent.find(".background--skyBlue").hasClass("modal--open")).toBe(true);
-  });
-});
+  })
+})

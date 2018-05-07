@@ -10,50 +10,49 @@
         margin: 1em;
         padding: 2em;
       }
-
       .errorBox--hidden {
         display: none;
       }
     </style>
   </head>
   <body>
-    <main>
-      <label>Name: <input id="name" type="text"/></label>
-      <button id="submit_info">Click me!</button>
 
-      <div id="content"></div>
+    <label>Name: <input id="name" type="text"/></label>
+    <button type="button" id="submit_info" name="button">Click me!</button>
+    <main>
+      <div id="content">
+      </div>
+
       <div id="error" class="errorBox--hidden">
         Error message goes here.
       </div>
     </main>
 
-      <script src="https://unpkg.com/babel-standalone">
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js">
+    </script>
 
-      </script>
+    <script type="text/babel" data-presets="latest">
 
-      <script type="text/babel" data-presets="latest">
+    const getMessage = (name) => `Welcome to JavaScript, ${name}!`;
+    const button = document.getElementById('submit_info');
 
-        const getMessage = (name) => `Welcome to Javascript, ${name}!`;
-        const button = document.getElementById('submit_info');
+    const messageArea = document.getElementById('error');
+    const contentArea = document.getElementById('content');
 
-        const contentArea = document.getElementById('content');
-        const messageArea = document.getElementById("error");
+    button.addEventListener('click', (evt) => {
+      let name = document.getElementById('name').value;
+      messageArea.className = "errorBox--hidden";
+      contentArea.textContent = "";
 
-        button.addEventListener('click', (evt) => {
-          messageArea.className = "errorBox--hidden";
-          contentArea.textContent = "";
+      if (name.length < 2) {
+        messageArea.textContent = "You need to enter a name!";
+        messageArea.className = "errorBox";
+      }
+      else {
+        contentArea.textContent = getMessage(name);
+      }
+    });
 
-          let name = document.getElementById('name').value;
-
-          if (name.length < 2) {
-            messageArea.textContent = "You need to enter a name!";
-            messageArea.className = "errorBox";
-          }
-          else {
-            contentArea.textContent = getMessage(name);
-          }
-        });
-
-      </script>
+    </script>
   </body>
 </html>
