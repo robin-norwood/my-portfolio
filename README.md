@@ -11,3 +11,8 @@ HTML
 CSS
 Font Awesome
 Google Fonts
+React
+NPM
+webpack
+babel
+jest

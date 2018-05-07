@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>React Demo</title>
     <link rel="stylesheet" href="https://unpkg.com/mocha@5.0.4/mocha.css">
+
     <style media="screen">
       .messageBox {
         border: 1px solid;
@@ -19,6 +20,7 @@
       .success {
         border-color: blue;
         background-color: #bbbbee;
+
       }
 
       .hidden {
@@ -63,6 +65,7 @@
         }
 
         render() {
+
           let msg = this.state.message;
 
           return (
@@ -71,6 +74,7 @@
               <button id="inputButton" onClick={this.buttonClicked}>Click me!</button>
 
               <MessageBox type={msg.type} message={msg.body}/>
+
             </div>
           )
         }
@@ -86,6 +90,7 @@
         }
       }
       ReactDOM.render(<NameInput />, document.getElementById('content'));
+
     </script>
 
     <script type="text/babel" data-presets="react">

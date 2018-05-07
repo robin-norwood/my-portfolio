@@ -8,7 +8,8 @@ class ExampleWork extends React.Component {
     this.state = {
       'modalOpen': false,
       'selectedExample': this.props.work[0]
-    }
+
+    };
 
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -51,7 +52,6 @@ class ExampleWork extends React.Component {
 class ExampleWorkBubble extends React.Component {
   render() {
     let example = this.props.example;
-
     return (
       <div className="section__exampleWrapper"
         onClick={ (evt) => this.props.openModal(evt, example) }>
